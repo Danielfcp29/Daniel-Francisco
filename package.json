@@ -1,0 +1,24 @@
+{
+  "name": "daniel-francisco",
+  "version": "1.0.0",
+  "description": "Projeto de Site",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danielfcp29/Daniel-Francisco.git"
+  },
+  "author": "Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danielfcp29/Daniel-Francisco/issues"
+  },
+  "homepage": "https://github.com/Danielfcp29/Daniel-Francisco#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

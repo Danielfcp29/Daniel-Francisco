@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresso Jogo de Basquete</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('imgfundo2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-top-right {
+            position: fixed;
+            right: 0;
+            top: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-top-right">
+        <a href="DanielTPagina4.html" class="btn btn-secondary">Menu</a>
+    </div>
+    <div class="container mt-5" style="background-color: rgba(255, 255, 255, 0.8);">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="Vip.jpg" class="img-fluid" alt="Imagem do Jogo de Basquete">
+            </div>
+            <div class="col-md-6">
+                <h2>Jogo de Basquete em São Paulo</h2>
+                <p>Data: 25 de Março</p>
+                <p>Tipo de Ingresso: VIP</p>
+                <p>Valor do Ingresso: R$100</p>
+                <p>Quantidade Disponível: <span id="quantidade-disponivel">50</span> ingressos</p>
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label>
+                    <select class="form-control" id="quantidade" onchange="atualizarValorTotal()">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </div>
+                <p>Valor Total: R$<span id="valor-total">100</span></p>
+                <button class="btn btn-primary" onclick="finalizarCompra()">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const valorIngresso = 100;
+
+        function atualizarValorTotal() {
+            var quantidade = parseInt(document.getElementById('quantidade').value);
+            document.getElementById('valor-total').innerText = quantidade * valorIngresso;
+        }
+
+        function finalizarCompra() {
+            var quantidadeDisponivelElement = document.getElementById('quantidade-disponivel');
+            var quantidadeDisponivel = parseInt(quantidadeDisponivelElement.innerText);
+            var quantidadeCompra = parseInt(document.getElementById('quantidade').value);
+
+            if (quantidadeCompra <= quantidadeDisponivel) {
+                quantidadeDisponivel -= quantidadeCompra;
+                quantidadeDisponivelElement.innerText = quantidadeDisponivel;
+                alert('Compra finalizada com sucesso! Valor total: R$' + (quantidadeCompra * valorIngresso) + '.');
+            } else {
+                alert('Não há ingressos suficientes disponíveis.');
+            }
+        }
+    </script>
+</body>
+</html>
